@@ -1,0 +1,1137 @@
+{
+	"info": {
+		"_postman_id": "6f67d644-882a-4484-b15d-a620b526d506",
+		"name": "Bank-Api Documentation",
+		"description": "## Bank-Api Documentation\n\nThis collection contains sample requests from the fake bank-app assessment test.\n\nContains the following request as requested in the task assessment image:\n\n*   Authenticate User\n*   Create Bank Account with initial deposit\n*   Transfer between bank account users\n*   Retrieve balance for a given account\n*   Retrieve transfer history for a given account",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authenticate User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "username",
+						"value": "admin@admin.com",
+						"type": "text"
+					},
+					{
+						"key": "password",
+						"value": "123456789",
+						"type": "text"
+					},
+					{
+						"key": "api_key",
+						"value": "123456789ky",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Test",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "test@admin.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456789",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8001/api/createAdmin",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8001",
+					"path": [
+						"api",
+						"createAdmin"
+					]
+				},
+				"description": "API endpoint to *Authenticate* a user.\n\n> A successful authentication will result in a *HTTP 200* status code  \n> A Failed authentication due to validation error will result in a *HTTP 100* status code  \n> A Failed authentication will result in a *HTTP 400* status code"
+			},
+			"response": [
+				{
+					"name": "Authenticate User",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "username",
+								"value": "admin@admin.com",
+								"type": "text"
+							},
+							{
+								"key": "password",
+								"value": "123456789",
+								"type": "text"
+							},
+							{
+								"key": "api_key",
+								"value": "123456789ky",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Test",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "test@admin.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456789",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/createAdmin",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"createAdmin"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 27 Feb 2022 17:41:37 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 27 Feb 2022 17:41:37 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.4.26"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Admin user created successfully\",\n    \"status\": \"200\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Create Bank Account",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "username",
+						"value": "admin@admin.com",
+						"type": "text"
+					},
+					{
+						"key": "password",
+						"value": "123456789",
+						"type": "text"
+					},
+					{
+						"key": "api_key",
+						"value": "123456789ky",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Test Testing",
+							"type": "text"
+						},
+						{
+							"key": "number",
+							"value": "1234561111",
+							"type": "text"
+						},
+						{
+							"key": "intial_deposit",
+							"value": "100",
+							"type": "text"
+						},
+						{
+							"key": "type",
+							"value": "savings",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8002/api/createAccount",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8002",
+					"path": [
+						"api",
+						"createAccount"
+					]
+				},
+				"description": "API endpoint to *Create Bank Account*.\n\n> A successful authentication will result in a *HTTP 200* status code  \n> A Failed authentication due to validation error will result in a *HTTP 100* status code  \n> A Failed authentication will result in a *HTTP 400* status code"
+			},
+			"response": [
+				{
+					"name": "Create Bank Account",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "username",
+								"value": "admin@admin.com",
+								"type": "text"
+							},
+							{
+								"key": "password",
+								"value": "123456789",
+								"type": "text"
+							},
+							{
+								"key": "api_key",
+								"value": "123456789ky",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Test Testing",
+									"type": "text"
+								},
+								{
+									"key": "number",
+									"value": "1234561111",
+									"type": "text"
+								},
+								{
+									"key": "intial_deposit",
+									"value": "1000",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "savings",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/createAccount",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"createAccount"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 27 Feb 2022 17:42:16 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 27 Feb 2022 17:42:16 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.4.26"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Account successfully created\",\n    \"status\": \"200\"\n}"
+				},
+				{
+					"name": "Create Bank Account 2",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "username",
+								"value": "admin@admin.com",
+								"type": "text"
+							},
+							{
+								"key": "password",
+								"value": "123456789",
+								"type": "text"
+							},
+							{
+								"key": "api_key",
+								"value": "123456789ky",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Test Two",
+									"type": "text"
+								},
+								{
+									"key": "number",
+									"value": "1234561122",
+									"type": "text"
+								},
+								{
+									"key": "intial_deposit",
+									"value": "500",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "current",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/createAccount",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"createAccount"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 27 Feb 2022 17:43:59 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 27 Feb 2022 17:43:59 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.4.26"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Account successfully created\",\n    \"status\": \"200\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Transfer",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "username",
+						"value": "admin@admin.com",
+						"type": "text"
+					},
+					{
+						"key": "password",
+						"value": "123456789",
+						"type": "text"
+					},
+					{
+						"key": "api_key",
+						"value": "123456789ky",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "account_number",
+							"value": "1234567898",
+							"type": "text"
+						},
+						{
+							"key": "amount",
+							"value": "200",
+							"type": "text"
+						},
+						{
+							"key": "debit_to",
+							"value": "1234567111",
+							"type": "text"
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8001/api/transfer",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8001",
+					"path": [
+						"api",
+						"transfer"
+					]
+				},
+				"description": "API endpoint to *Transfer* from one account to another.\n\n> A successful authentication will result in a *HTTP 200* status code  \n> A Failed authentication due to validation error will result in a *HTTP 100* status code  \n> A Failed authentication will result in a *HTTP 400* status code"
+			},
+			"response": [
+				{
+					"name": "Transfer",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "username",
+								"value": "admin@admin.com",
+								"type": "text"
+							},
+							{
+								"key": "password",
+								"value": "123456789",
+								"type": "text"
+							},
+							{
+								"key": "api_key",
+								"value": "123456789ky",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "account_number",
+									"value": "1234561111",
+									"type": "text"
+								},
+								{
+									"key": "amount",
+									"value": "200",
+									"type": "text"
+								},
+								{
+									"key": "debit_to",
+									"value": "1234561122",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/transfer",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"transfer"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 27 Feb 2022 17:44:54 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 27 Feb 2022 17:44:54 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.4.26"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Transfer successfully\",\n    \"status\": \"200\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Retrieve Account Balance",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "username",
+						"value": "admin@admin.com",
+						"type": "text"
+					},
+					{
+						"key": "password",
+						"value": "123456789",
+						"type": "text"
+					},
+					{
+						"key": "api_key",
+						"value": "123456789ky",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "account_name",
+							"value": "Adelusi Motolani",
+							"type": "text"
+						},
+						{
+							"key": "account_number",
+							"value": "1234567898",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8001/api/getbalance",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8001",
+					"path": [
+						"api",
+						"getbalance"
+					]
+				},
+				"description": "API endpoint to *Retrieve Account Balance* for a given account.\n\n> A successful authentication will result in a *HTTP 200* status code  \n> A Failed authentication due to validation error will result in a *HTTP 100* status code"
+			},
+			"response": [
+				{
+					"name": "Get Balance",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "username",
+								"value": "admin@admin.com",
+								"type": "text"
+							},
+							{
+								"key": "password",
+								"value": "123456789",
+								"type": "text"
+							},
+							{
+								"key": "api_key",
+								"value": "123456789ky",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "account_name",
+									"value": "Test Two",
+									"type": "text"
+								},
+								{
+									"key": "account_number",
+									"value": "1234561122",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/getbalance",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"getbalance"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 27 Feb 2022 17:45:47 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 27 Feb 2022 17:45:47 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.4.26"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"balance\": [\n        700\n    ],\n    \"status\": \"200\"\n}"
+				},
+				{
+					"name": "Get Balance 2",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "username",
+								"value": "admin@admin.com",
+								"type": "text"
+							},
+							{
+								"key": "password",
+								"value": "123456789",
+								"type": "text"
+							},
+							{
+								"key": "api_key",
+								"value": "123456789ky",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "account_name",
+									"value": "Test Testing",
+									"type": "text"
+								},
+								{
+									"key": "account_number",
+									"value": "1234561111",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/getbalance",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"getbalance"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 27 Feb 2022 17:46:19 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 27 Feb 2022 17:46:19 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.4.26"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"balance\": [\n        800\n    ],\n    \"status\": \"200\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Retrieve Transaction History",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "username",
+						"value": "admin@admin.com",
+						"type": "text"
+					},
+					{
+						"key": "password",
+						"value": "123456789",
+						"type": "text"
+					},
+					{
+						"key": "api_key",
+						"value": "123456789ky",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "account_number",
+							"value": "1234567898",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8002/api/transferHistory",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8002",
+					"path": [
+						"api",
+						"transferHistory"
+					]
+				},
+				"description": "API endpoint to *Retrieve Transaction History* for a given account.\n\n> A successful authentication will result in a *HTTP 200* status code  \n> A Failed authentication due to validation error will result in a *HTTP 100* status code  \n> A Failed authentication will result in a *HTTP 400* status code"
+			},
+			"response": [
+				{
+					"name": "Retrieve Transaction History",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "username",
+								"value": "admin@admin.com",
+								"type": "text"
+							},
+							{
+								"key": "password",
+								"value": "123456789",
+								"type": "text"
+							},
+							{
+								"key": "api_key",
+								"value": "123456789ky",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "account_number",
+									"value": "1234561111",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/transferHistory",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"transferHistory"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 27 Feb 2022 17:46:54 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 27 Feb 2022 17:46:54 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.4.26"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"Transactions\": [\n        {\n            \"id\": 7,\n            \"transaction_type\": \"debit\",\n            \"account_number\": 1234561111,\n            \"amount\": 200,\n            \"balance\": 800,\n            \"credit_from\": null,\n            \"debit_to\": 1234561122,\n            \"created_at\": \"2022-02-27T17:44:54.000000Z\",\n            \"updated_at\": \"2022-02-27T17:44:54.000000Z\"\n        }\n    ],\n    \"status\": \"200\"\n}"
+				},
+				{
+					"name": "Retrieve Transaction History 2",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "username",
+								"value": "admin@admin.com",
+								"type": "text"
+							},
+							{
+								"key": "password",
+								"value": "123456789",
+								"type": "text"
+							},
+							{
+								"key": "api_key",
+								"value": "123456789ky",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "account_number",
+									"value": "1234561122",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/transferHistory",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"transferHistory"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 27 Feb 2022 17:47:18 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 27 Feb 2022 17:47:18 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.4.26"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"Transactions\": [\n        {\n            \"id\": 8,\n            \"transaction_type\": \"credit\",\n            \"account_number\": 1234561122,\n            \"amount\": 200,\n            \"balance\": 700,\n            \"credit_from\": 1234561111,\n            \"debit_to\": null,\n            \"created_at\": \"2022-02-27T17:44:54.000000Z\",\n            \"updated_at\": \"2022-02-27T17:44:54.000000Z\"\n        }\n    ],\n    \"status\": \"200\"\n}"
+				}
+			]
+		}
+	]
+}

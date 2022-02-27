@@ -50,7 +50,7 @@ class TransactionController extends Controller
                 {
                     return response()->json(
                         [
-                            'message' =>'Insufficent Funds',
+                            'message' =>'Insufficient Funds',
                             'status'=> '400',
                         ]
                     );
